@@ -19,10 +19,12 @@ class WeatherApp extends State<MyApp> {
   var currently;
   var humidity;
   var windspeed;
+  String currentcity = "Cape Town";
 
   Future getWeather() async {
+    String apiKey = "8e4806ff7961f456e5ef068da0cf3e9b";
     http.Response response = await http.get(Uri.parse(
-        "https://api.openweathermap.org/data/2.5/weather?q=Preston&units=metric&appid=8e4806ff7961f456e5ef068da0cf3e9b"));
+        "https://api.openweathermap.org/data/2.5/weather?q=$currentcity&units=metric&appid=$apiKey"));
 
     var results = jsonDecode(response.body);
     setState(() {
@@ -118,7 +120,7 @@ class WeatherApp extends State<MyApp> {
                           Padding(
                             padding: EdgeInsets.all(0),
                             child: Text(
-                              "Preston", //location Text
+                              '$currentcity', //location Text
                               style: GoogleFonts.nunitoSans(
                                 fontSize: 50,
                                 color: Colors.white,
