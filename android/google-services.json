@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "185945800661",
+    "firebase_url": "https://mobilefirebase-51804-default-rtdb.firebaseio.com",
+    "project_id": "mobilefirebase-51804",
+    "storage_bucket": "mobilefirebase-51804.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:185945800661:android:962a10d0cc113905a0875c",
+        "android_client_info": {
+          "package_name": "com.example.flutterweatherui"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "185945800661-0rub0knrm4c3eai60au8tqcbmaq6i3ge.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB2yeB6PTbCNQazMMu8ON0m9maS8vhvaV4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "185945800661-0rub0knrm4c3eai60au8tqcbmaq6i3ge.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
