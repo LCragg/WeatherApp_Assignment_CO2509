@@ -9,10 +9,11 @@ class Settings extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Center(
+        title: Padding(
+          padding: EdgeInsets.fromLTRB(380, 10, 0, 20),
           child: Text(
             "Settings",
-            style: TextStyle(color: Colors.black87, fontSize: 35.0),
+            style: TextStyle(color: Colors.black87, fontSize: 40.0),
           ),
         ),
         elevation: 0,
@@ -34,7 +35,7 @@ class Settings extends StatelessWidget {
             Column(
               children: [
                 Padding(
-                  padding: EdgeInsets.fromLTRB(0, 30, 0, 0),
+                  padding: EdgeInsets.fromLTRB(0, 0, 0, 0),
                   child: Container(
                     height: 100.0,
                     decoration: BoxDecoration(
@@ -42,16 +43,27 @@ class Settings extends StatelessWidget {
                       top: BorderSide(width: 1.0, color: Colors.black87),
                       bottom: BorderSide(width: 1.0, color: Colors.black87),
                     )),
+                    child: Center(
+                      child: Text(
+                        "Theme",
+                        style: TextStyle(color: Colors.black87, fontSize: 40.0),
+                      ),
+                    ),
                   ),
                 ),
                 Container(
                   height: 100.0,
+                  width: double.infinity,
                   decoration: BoxDecoration(
-                    border: Border(
-                      bottom: BorderSide(width: 1.0, color: Colors.black87),
+                      border: Border(
+                    bottom: BorderSide(width: 1.0, color: Colors.black87),
+                  )),
+                  child: Center(
+                    child: Text(
+                      "Units",
+                      style: TextStyle(color: Colors.black87, fontSize: 40.0),
                     ),
                   ),
-                  child: Text(""),
                 )
               ],
             ),
