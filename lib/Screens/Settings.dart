@@ -16,20 +16,22 @@ class Settings extends StatelessWidget {
             style: TextStyle(color: Colors.black87, fontSize: 40.0),
           ),
         ),
-        elevation: 0,
+        elevation:
+            0, //removes any shadow from the app bar to make it fully transparent
         backgroundColor: Colors.transparent,
         leading: IconButton(
             icon: Icon(
-              Icons.chevron_left_outlined,
+              Icons.chevron_left_outlined, //back button on the app bar
               size: 40.0,
             ),
             onPressed: () {
-              Navigator.pop(context);
+              Navigator.pop(
+                  context); //sends the user back to where the navigator has brought them from
             },
             color: Colors.black87),
       ),
       body: Container(
-        width: double.infinity,
+        width: double.infinity, //container spans entire width of screen
         child: Stack(
           children: [
             Column(
@@ -45,7 +47,7 @@ class Settings extends StatelessWidget {
                     )),
                     child: Center(
                       child: Text(
-                        "Theme",
+                        "Theme", //theme section
                         style: TextStyle(color: Colors.black87, fontSize: 40.0),
                       ),
                     ),
@@ -60,9 +62,26 @@ class Settings extends StatelessWidget {
                   )),
                   child: Center(
                     child: Text(
-                      "Units",
+                      "Units", //change units section
                       style: TextStyle(color: Colors.black87, fontSize: 40.0),
                     ),
+                  ),
+                ),
+                Container(
+                  height: 100.0,
+                  width: double.infinity,
+                  decoration: BoxDecoration(
+                      border: Border(
+                    bottom: BorderSide(width: 1.0, color: Colors.black87),
+                  )),
+                  child: ListTile(
+                    title: Center(
+                      child: Text(
+                        "Reset Favourites", //reset lists of favourites
+                        style: TextStyle(color: Colors.black87, fontSize: 40.0),
+                      ),
+                    ),
+                    onTap: () {},
                   ),
                 )
               ],

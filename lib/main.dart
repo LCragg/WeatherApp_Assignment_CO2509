@@ -7,10 +7,11 @@ void main() => runApp(MaterialApp(
     ));
 
 class MyApp extends StatefulWidget {
+  //create stateful widget for the application
   const MyApp({Key? key}) : super(key: key);
   // This widget is the root of your application.
   @override
   State<StatefulWidget> createState() {
-    return WeatherApp();
+    return WeatherApp(); //weather app file used as the main source for code.
   }
 }
