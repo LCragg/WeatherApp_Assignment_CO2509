@@ -23,8 +23,8 @@ class WeatherApp extends State<MyApp> {
   var currently;
   var humidity;
   var windspeed;
-  String currentcity = "Cape Town"; //setting of global variables to get dynamic
-  String TUnit = "imperial"; //info from the api
+  String currentcity = "Chorley"; //setting of global variables to get dynamic
+  String TUnit = "metric"; //info from the api
 
   Future getWeather() async {
     String apiKey = "8e4806ff7961f456e5ef068da0cf3e9b";
@@ -70,10 +70,9 @@ class WeatherApp extends State<MyApp> {
           ),
           onPressed: () {
             Navigator.push(
-              //navigates to the settings page/settings screen within the project
-              context,
-              MaterialPageRoute(builder: (context) => Settings()),
-            );
+                //navigates to the settings page/settings screen within the project
+                context,
+                MaterialPageRoute(builder: (context) => Settings()));
           },
         ),
         actions: [
