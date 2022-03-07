@@ -1,13 +1,24 @@
 import 'package:flutterweatherui/Screens/Weather_app.dart';
 import 'package:flutterweatherui/main.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_switch/flutter_switch.dart';
+import 'package:adaptive_theme/adaptive_theme.dart';
 import 'package:get/get.dart';
 
 class Settings extends StatefulWidget {
   Settings({Key? key}) : super(key: key);
   @override
   MySettings createState() => MySettings();
+}
+
+class ThemeClass {
+  static ThemeData lightTheme = ThemeData(
+    scaffoldBackgroundColor: Colors.white,
+    colorScheme: ColorScheme.light(),
+  );
+  static ThemeData darkTheme = ThemeData(
+    scaffoldBackgroundColor: Colors.black87,
+    colorScheme: ColorScheme.dark(),
+  );
 }
 
 class MySettings extends State<Settings> {
@@ -78,11 +89,7 @@ class MySettings extends State<Settings> {
                                   padding: EdgeInsets.fromLTRB(800, 25, 0, 0),
                                   child: IconButton(
                                     icon: Icon(Icons.lightbulb),
-                                    onPressed: () {
-                                      Get.isDarkMode
-                                          ? Get.changeTheme(ThemeData.light())
-                                          : Get.changeTheme(ThemeData.dark());
-                                    },
+                                    onPressed: () {},
                                   ),
                                 ),
                               ),
