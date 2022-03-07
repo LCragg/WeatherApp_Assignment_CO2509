@@ -1,14 +1,13 @@
 import 'dart:convert';
+import 'dart:async';
 import 'package:flutter/material.dart';
+import 'package:flutterweatherui/Screens/Locations.dart';
 import 'package:flutterweatherui/Screens/Settings.dart';
 import 'package:flutterweatherui/main.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:http/http.dart' as http;
 import 'dart:html';
-import 'package:firebase_database/firebase_database.dart';
-import 'package:firebase_core/firebase_core.dart';
-//import 'package:intl/intl.dart';
 
 //all packages imported for the design
 
@@ -80,7 +79,10 @@ class WeatherApp extends State<MyApp> {
             margin: EdgeInsets.fromLTRB(0, 0, 20, 0),
             child: GestureDetector(
               //onpressed equivalent for images.
-              onTap: () => print("Menu Clicked"),
+              onTap: () {
+                Navigator.push(context,
+                    MaterialPageRoute(builder: (context) => Locations()));
+              },
               child: SvgPicture.asset(
                 //stored in the created assets folder.
                 'assets/plus.svg',
