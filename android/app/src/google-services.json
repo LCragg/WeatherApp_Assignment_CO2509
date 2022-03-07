@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "314650492841",
+    "project_id": "co2509-db",
+    "storage_bucket": "co2509-db.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:314650492841:android:c3ad4c5d64801cdb2f0eb8",
+        "android_client_info": {
+          "package_name": "com.example.flutterweatherui"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "314650492841-d6c3okgj0iid495damhr4e4kb5gicvdp.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDGp6_2c_ALiy5jlMJ3RUGjrDaTd2kjDaU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "314650492841-d6c3okgj0iid495damhr4e4kb5gicvdp.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
