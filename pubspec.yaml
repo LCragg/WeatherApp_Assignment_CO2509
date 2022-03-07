@@ -19,10 +19,7 @@ dependencies:
   flutter_svg: ^1.0.3
   shared_preferences: ^2.0.13
   get: ^4.6.1
-  firebase_database: ^9.0.6
-  firebase_core: ^1.12.0
-  flutter_switch: ^0.3.2
-  #intl: ^0.15.8
+  adaptive_theme: ^2.3.0
   cupertino_icons: ^1.0.2
 
 dev_dependencies:
