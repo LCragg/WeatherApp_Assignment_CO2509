@@ -2,12 +2,14 @@ import 'package:flutter/material.dart';
 import 'package:flutterweatherui/Screens/Settings.dart' as settings;
 import 'Screens/Weather_app.dart';
 import 'package:get/get.dart';
+import 'package:adaptive_theme/adaptive_theme.dart';
 
 void main() => runApp(GetMaterialApp(
       title: "Weather App",
       home: MyApp(),
-      darkTheme: ThemeData.dark(),
       themeMode: ThemeMode.system,
+      theme: settings.ThemeClass.lightTheme,
+      darkTheme: settings.ThemeClass.darkTheme,
     ));
 
 class MyApp extends StatefulWidget {
