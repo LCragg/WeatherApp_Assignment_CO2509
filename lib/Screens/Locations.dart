@@ -1,11 +1,10 @@
-import 'dart:ui';
-
-import 'package:flutterweatherui/main.dart';
+// ignore_for_file: deprecated_member_use
+import 'Weather_app.dart';
+import 'package:flutterweatherui/Screens/Weather_app.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class Locations extends StatefulWidget {
-  Locations({Key? key}) : super(key: key);
   @override
   AllLocations createState() => AllLocations();
 }
@@ -44,10 +43,12 @@ class AllLocations extends State<Locations> {
     'Oslo',
     'Tokyo'
   ];
+  String value = '';
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        foregroundColor: Colors.black,
         title: Padding(
           padding: EdgeInsets.fromLTRB(380, 40, 0, 40),
           child: Text(
@@ -63,7 +64,24 @@ class AllLocations extends State<Locations> {
             ),
             preferredSize: Size.fromHeight(1)),
       ),
-      body: ListView.builder(
+      body: Column(
+        children: <Widget>[
+          TextField(
+            onChanged: (text) {
+              value = text;
+            },
+          ),
+          RaisedButton(
+            onPressed: () {
+              Navigator.of(context).push(MaterialPageRoute(
+                builder: (context) => MainWeatherApp(currentcity: value),
+              ));
+            },
+            child: Text("Set"),
+          ),
+        ],
+      ),
+      /*ListView.builder(
           itemCount: listlocations.length,
           itemBuilder: (context, index) {
             return Container(
@@ -74,43 +92,30 @@ class AllLocations extends State<Locations> {
                 padding: EdgeInsets.fromLTRB(30, 8, 0, 8),
                 child: ListTile(
                   title: Text(
+                    "Melbourne",
+                    style: GoogleFonts.nunitoSans(fontSize: 35),
+                  ),
+                  onTap: () {
+                    var route = new MaterialPageRoute(
+                      builder: (BuildContext context) =>
+                          new MainWeatherApp(currentcity: string1),
+                    );
+                  },
+                ),
+              ),
+              /*
+              child: Padding(
+                padding: EdgeInsets.fromLTRB(30, 8, 0, 8),
+                child: ListTile(
+                  title: Text(
                     listlocations[index],
                     style: GoogleFonts.nunitoSans(fontSize: 35),
                   ),
+                  onTap: () {},
                 ),
-              ),
+              ),*/ 
             );
-          }
-          /*(children: const <Widget>[
-        Padding(
-          padding: EdgeInsets.all(16.0),
-          child: ListTile(
-            title: Text(
-              "Chorley",
-              style: TextStyle(fontSize: 25),
-            ),
-          ),
-        ),
-        Padding(
-          padding: EdgeInsets.all(16.0),
-          child: ListTile(
-            title: Text(
-              "Preston",
-              style: TextStyle(fontSize: 25),
-            ),
-          ),
-        ),
-        Padding(
-          padding: EdgeInsets.all(16.0),
-          child: ListTile(
-            title: Text(
-              "London",
-              style: TextStyle(fontSize: 25),
-            ),
-          ),
-        ),
-      ]),*/
-          ),
+          }),*/
     );
   }
 }
