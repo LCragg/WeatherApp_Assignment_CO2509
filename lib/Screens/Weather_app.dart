@@ -4,12 +4,11 @@ import 'package:flutterweatherui/Screens/Locations.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:http/http.dart' as http;
 import 'package:flutter/material.dart';
-//import 'package:get/get.dart';
 import 'package:flutterweatherui/Screens/Settings.dart';
 
 //all packages imported for the design
 class MainWeatherApp extends StatefulWidget {
-  String currentcity = "Chorley";
+  String currentcity = "Chorley"; //set the default location for the app
   MainWeatherApp({required this.currentcity});
   @override
   WeatherApp createState() => WeatherApp(currentcity);
@@ -28,8 +27,7 @@ class WeatherApp extends State<MainWeatherApp> {
   var description;
   var currently;
   var humidity;
-  var windspeed;
-  //String currentcity = "Chorley"; //setting of global variables to get dynamic
+  var windspeed; //setting of global variables to get dynamic
   String TUnit = "metric"; //info from the api
 
   Future getWeather() async {
@@ -86,6 +84,7 @@ class WeatherApp extends State<MainWeatherApp> {
             padding: const EdgeInsets.fromLTRB(0, 5, 20, 0),
             child: IconButton(
               icon: const Icon(
+                //navigates to the locations page
                 Icons.add_location_alt_outlined,
                 size: 35,
                 color: Colors.white,
@@ -101,14 +100,16 @@ class WeatherApp extends State<MainWeatherApp> {
       body: Container(
         width: double.infinity,
         decoration: BoxDecoration(
-            gradient: LinearGradient(
-          begin: Alignment.topCenter,
-          end: Alignment.bottomCenter,
-          colors: [
-            BackLB, //set the colours for the background.
-            BackDB,
-          ],
-        )),
+          //create a gradient background for the app
+          gradient: LinearGradient(
+            begin: Alignment.topCenter,
+            end: Alignment.bottomCenter,
+            colors: [
+              BackLB, //set the colours for the background.
+              BackDB,
+            ],
+          ),
+        ),
         child: Stack(
           children: [
             Container(
@@ -134,19 +135,20 @@ class WeatherApp extends State<MainWeatherApp> {
                             ),
                           ),
                           Padding(
-                              padding: EdgeInsets.fromLTRB(0, 0, 0, 0),
-                              child: Text(
-                                temp != null //text for the current temp
-                                    ? temp.toString() +
-                                        "\u00b0C" //degrees celsius symbol
-                                    : "Loading...",
-                                //displays loading if there is an issue getting the info from api.
-                                style: GoogleFonts.nunitoSans(
-                                  fontSize: 70,
-                                  fontWeight: FontWeight.normal,
-                                  color: Colors.white,
-                                ),
-                              )),
+                            padding: EdgeInsets.fromLTRB(0, 0, 0, 0),
+                            child: Text(
+                              temp != null //text for the current temp
+                                  ? temp.toString() +
+                                      "\u00b0C" //degrees celsius symbol
+                                  : "Loading...",
+                              //displays loading if there is an issue getting the info from api.
+                              style: GoogleFonts.nunitoSans(
+                                fontSize: 70,
+                                fontWeight: FontWeight.normal,
+                                color: Colors.white,
+                              ),
+                            ),
+                          ),
                         ],
                       ),
                       Column(
@@ -161,7 +163,7 @@ class WeatherApp extends State<MainWeatherApp> {
                                   child: Text(
                                     tempmin != null
                                         ? tempmin.toString() + "\u00b0"
-                                        : "Loading", //High Low Text
+                                        : "Loading", //Daily Low Temp
                                     style: GoogleFonts.nunitoSans(
                                       fontSize: 45,
                                       color: Colors.white,
@@ -174,7 +176,7 @@ class WeatherApp extends State<MainWeatherApp> {
                                   child: Text(
                                     tempmax != null
                                         ? tempmax.toString() + "\u00b0"
-                                        : "Loading",
+                                        : "Loading", //Daily High Temp
                                     style: GoogleFonts.nunitoSans(
                                       fontSize: 45,
                                       color: Colors.white,
