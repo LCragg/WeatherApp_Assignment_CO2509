@@ -1,14 +1,10 @@
 import 'dart:convert';
 import 'dart:async';
 import 'package:flutterweatherui/Screens/Locations.dart';
-import 'package:flutterweatherui/main.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:flutter_svg/flutter_svg.dart';
 import 'package:http/http.dart' as http;
-import 'package:flutterweatherui/Screens/Settings.dart' as settings;
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
-import 'package:adaptive_theme/adaptive_theme.dart';
+//import 'package:get/get.dart';
 import 'package:flutterweatherui/Screens/Settings.dart';
 
 //all packages imported for the design
@@ -69,11 +65,11 @@ class WeatherApp extends State<MainWeatherApp> {
       extendBodyBehindAppBar: true,
       //makes the background cover the entire height of the screen including the appbar
       appBar: AppBar(
-        title: Text(''),
+        title: const Text(''),
         backgroundColor: Colors.transparent,
         elevation: 0, //remove app bar shadow.
         leading: IconButton(
-          icon: Icon(
+          icon: const Icon(
             Icons.settings,
             size: 35,
             color: Colors.white,
@@ -86,23 +82,20 @@ class WeatherApp extends State<MainWeatherApp> {
           },
         ),
         actions: [
-          Container(
-            margin: EdgeInsets.fromLTRB(0, 0, 20, 0),
-            child: GestureDetector(
-              //onpressed equivalent for images.
-              onTap: () {
+          Padding(
+            padding: const EdgeInsets.fromLTRB(0, 5, 20, 0),
+            child: IconButton(
+              icon: const Icon(
+                Icons.add_location_alt_outlined,
+                size: 35,
+                color: Colors.white,
+              ),
+              onPressed: () {
                 Navigator.push(context,
                     MaterialPageRoute(builder: (context) => Locations()));
               },
-              child: SvgPicture.asset(
-                //stored in the created assets folder.
-                'assets/plus.svg',
-                height: 30,
-                width: 30,
-                color: Colors.white,
-              ),
             ),
-          )
+          ),
         ],
       ),
       body: Container(
@@ -119,17 +112,17 @@ class WeatherApp extends State<MainWeatherApp> {
         child: Stack(
           children: [
             Container(
-              decoration: BoxDecoration(color: Colors.black12),
+              decoration: const BoxDecoration(color: Colors.black12),
             ), //adds a dark filter on the screen to make the white text clearer.
             Container(
-              alignment: Alignment(0.0, 0.0),
+              alignment: const Alignment(0.0, 0.0),
               child: Column(
                 children: [
                   Column(
                     children: [
                       Column(
                         children: [
-                          SizedBox(height: 120),
+                          const SizedBox(height: 120),
                           Padding(
                             padding: EdgeInsets.all(0),
                             child: Text(
@@ -163,7 +156,8 @@ class WeatherApp extends State<MainWeatherApp> {
                               mainAxisAlignment: MainAxisAlignment.center,
                               children: [
                                 Padding(
-                                  padding: EdgeInsets.fromLTRB(20, 10, 0, 0),
+                                  padding:
+                                      const EdgeInsets.fromLTRB(20, 10, 0, 0),
                                   child: Text(
                                     tempmin != null
                                         ? tempmin.toString() + "\u00b0"
@@ -175,7 +169,8 @@ class WeatherApp extends State<MainWeatherApp> {
                                   ),
                                 ),
                                 Padding(
-                                  padding: EdgeInsets.fromLTRB(20, 10, 0, 0),
+                                  padding:
+                                      const EdgeInsets.fromLTRB(20, 10, 0, 0),
                                   child: Text(
                                     tempmax != null
                                         ? tempmax.toString() + "\u00b0"
@@ -190,7 +185,7 @@ class WeatherApp extends State<MainWeatherApp> {
                             ),
                           ),
                           Padding(
-                            padding: EdgeInsets.fromLTRB(0, 0, 0, 0),
+                            padding: const EdgeInsets.fromLTRB(0, 0, 0, 0),
                             child: Text(
                               currently != null
                                   ? currently.toString()
@@ -219,7 +214,7 @@ class WeatherApp extends State<MainWeatherApp> {
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: <Widget>[
                           Padding(
-                              padding: EdgeInsets.fromLTRB(5, 10, 5, 0),
+                              padding: const EdgeInsets.fromLTRB(5, 10, 5, 0),
                               child: Container(
                                 alignment: Alignment.center,
                                 width: 200,
@@ -231,7 +226,7 @@ class WeatherApp extends State<MainWeatherApp> {
                                   humidity != null
                                       ? humidity.toString() + "%"
                                       : "Loading...", //display humidity
-                                  style: TextStyle(
+                                  style: const TextStyle(
                                       color: Colors.white,
                                       fontSize: 26.0,
                                       fontWeight: FontWeight.w600),
@@ -250,7 +245,7 @@ class WeatherApp extends State<MainWeatherApp> {
                                 windspeed != null
                                     ? windspeed.toString() + 'mph'
                                     : 'Loading...', //display wind speed text
-                                style: TextStyle(
+                                style: const TextStyle(
                                     color: Colors.white,
                                     fontSize: 26.0,
                                     fontWeight: FontWeight.w600),
