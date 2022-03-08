@@ -10,39 +10,6 @@ class Locations extends StatefulWidget {
 }
 
 class AllLocations extends State<Locations> {
-  final listlocations = [
-    'Chorley',
-    'Preston',
-    'London',
-    'Edinburgh',
-    'Cardiff',
-    'New York',
-    'Boston',
-    'Dublin',
-    'Paris',
-    'Barcelona',
-    'Madrid',
-    'Berlin',
-    'Munich',
-    'Prague',
-    'Singapore',
-    'Melbourne',
-    'Reykjavik',
-    'Beijing',
-    'Helsinki',
-    'Monaco',
-    'Stockholm',
-    'Bangkok',
-    'Washington D.C.',
-    'Kyiv',
-    'Moscow',
-    'Seoul',
-    'Cape Town',
-    'Lisbon',
-    'Warsaw',
-    'Oslo',
-    'Tokyo'
-  ];
   String value = '';
   @override
   Widget build(BuildContext context) {
@@ -64,58 +31,290 @@ class AllLocations extends State<Locations> {
             ),
             preferredSize: Size.fromHeight(1)),
       ),
-      body: Column(
-        children: <Widget>[
-          TextField(
-            onChanged: (text) {
-              value = text;
-            },
-          ),
-          RaisedButton(
-            onPressed: () {
-              Navigator.of(context).push(MaterialPageRoute(
-                builder: (context) => MainWeatherApp(currentcity: value),
-              ));
-            },
-            child: Text("Set"),
-          ),
-        ],
+      body: SingleChildScrollView(
+        child: Column(
+          children: <Widget>[
+            TextField(
+              onChanged: (text) {
+                value = text;
+              },
+            ),
+            RaisedButton(
+              onPressed: () {
+                Navigator.of(context).push(MaterialPageRoute(
+                  builder: (context) => MainWeatherApp(currentcity: value),
+                ));
+              },
+              shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(10)),
+              child: Text("Search"),
+            ),
+            ListTile(
+              title:
+                  Text("Chorley", style: GoogleFonts.nunitoSans(fontSize: 30)),
+              trailing: IconButton(
+                  onPressed: () {},
+                  icon:
+                      const Icon(Icons.add_circle_outline_outlined, size: 30)),
+              onTap: () {
+                Navigator.of(context).push(MaterialPageRoute(
+                  builder: (context) => MainWeatherApp(currentcity: "Chorley"),
+                ));
+              },
+            ),
+            ListTile(
+              title:
+                  Text("Preston", style: GoogleFonts.nunitoSans(fontSize: 30)),
+              trailing: IconButton(
+                  onPressed: () {},
+                  icon:
+                      const Icon(Icons.add_circle_outline_outlined, size: 30)),
+              onTap: () {
+                Navigator.of(context).push(MaterialPageRoute(
+                  builder: (context) => MainWeatherApp(currentcity: "Preston"),
+                ));
+              },
+            ),
+            ListTile(
+              title:
+                  Text("London", style: GoogleFonts.nunitoSans(fontSize: 30)),
+              trailing: IconButton(
+                  onPressed: () {},
+                  icon:
+                      const Icon(Icons.add_circle_outline_outlined, size: 30)),
+              onTap: () {
+                Navigator.of(context).push(MaterialPageRoute(
+                  builder: (context) => MainWeatherApp(currentcity: "London"),
+                ));
+              },
+            ),
+            ListTile(
+              title: Text("Edinburgh",
+                  style: GoogleFonts.nunitoSans(fontSize: 30)),
+              trailing: IconButton(
+                  onPressed: () {},
+                  icon:
+                      const Icon(Icons.add_circle_outline_outlined, size: 30)),
+              onTap: () {
+                Navigator.of(context).push(MaterialPageRoute(
+                  builder: (context) =>
+                      MainWeatherApp(currentcity: "Edinburgh"),
+                ));
+              },
+            ),
+            ListTile(
+              title:
+                  Text("Cardiff", style: GoogleFonts.nunitoSans(fontSize: 30)),
+              trailing: IconButton(
+                  onPressed: () {},
+                  icon:
+                      const Icon(Icons.add_circle_outline_outlined, size: 30)),
+              onTap: () {
+                Navigator.of(context).push(MaterialPageRoute(
+                  builder: (context) => MainWeatherApp(currentcity: "Cardiff"),
+                ));
+              },
+            ),
+            ListTile(
+              title:
+                  Text("Dublin", style: GoogleFonts.nunitoSans(fontSize: 30)),
+              trailing: IconButton(
+                  onPressed: () {},
+                  icon:
+                      const Icon(Icons.add_circle_outline_outlined, size: 30)),
+              onTap: () {
+                Navigator.of(context).push(MaterialPageRoute(
+                  builder: (context) => MainWeatherApp(currentcity: "Dublin"),
+                ));
+              },
+            ),
+            ListTile(
+              title:
+                  Text("Boston", style: GoogleFonts.nunitoSans(fontSize: 30)),
+              trailing: IconButton(
+                  onPressed: () {},
+                  icon:
+                      const Icon(Icons.add_circle_outline_outlined, size: 30)),
+              onTap: () {
+                Navigator.of(context).push(MaterialPageRoute(
+                  builder: (context) => MainWeatherApp(currentcity: "Boston"),
+                ));
+              },
+            ),
+            ListTile(
+              title:
+                  Text("New York", style: GoogleFonts.nunitoSans(fontSize: 30)),
+              trailing: IconButton(
+                  onPressed: () {},
+                  icon:
+                      const Icon(Icons.add_circle_outline_outlined, size: 30)),
+              onTap: () {
+                Navigator.of(context).push(MaterialPageRoute(
+                  builder: (context) => MainWeatherApp(currentcity: "New York"),
+                ));
+              },
+            ),
+            ListTile(
+              title: Text("Washington DC",
+                  style: GoogleFonts.nunitoSans(fontSize: 30)),
+              trailing: IconButton(
+                  onPressed: () {},
+                  icon:
+                      const Icon(Icons.add_circle_outline_outlined, size: 30)),
+              onTap: () {
+                Navigator.of(context).push(MaterialPageRoute(
+                  builder: (context) =>
+                      MainWeatherApp(currentcity: "Washington DC"),
+                ));
+              },
+            ),
+            ListTile(
+              title: Text("Paris", style: GoogleFonts.nunitoSans(fontSize: 30)),
+              trailing: IconButton(
+                  onPressed: () {},
+                  icon:
+                      const Icon(Icons.add_circle_outline_outlined, size: 30)),
+              onTap: () {
+                Navigator.of(context).push(MaterialPageRoute(
+                  builder: (context) => MainWeatherApp(currentcity: "Paris"),
+                ));
+              },
+            ),
+            ListTile(
+              title: Text("Barcelona",
+                  style: GoogleFonts.nunitoSans(fontSize: 30)),
+              trailing: IconButton(
+                  onPressed: () {},
+                  icon:
+                      const Icon(Icons.add_circle_outline_outlined, size: 30)),
+              onTap: () {
+                Navigator.of(context).push(MaterialPageRoute(
+                  builder: (context) =>
+                      MainWeatherApp(currentcity: "Barcelona"),
+                ));
+              },
+            ),
+            ListTile(
+              title:
+                  Text("Madrid", style: GoogleFonts.nunitoSans(fontSize: 30)),
+              trailing: IconButton(
+                  onPressed: () {},
+                  icon:
+                      const Icon(Icons.add_circle_outline_outlined, size: 30)),
+              onTap: () {
+                Navigator.of(context).push(MaterialPageRoute(
+                  builder: (context) => MainWeatherApp(currentcity: "Madrid"),
+                ));
+              },
+            ),
+            ListTile(
+              title:
+                  Text("Berlin", style: GoogleFonts.nunitoSans(fontSize: 30)),
+              trailing: IconButton(
+                  onPressed: () {},
+                  icon:
+                      const Icon(Icons.add_circle_outline_outlined, size: 30)),
+              onTap: () {
+                Navigator.of(context).push(MaterialPageRoute(
+                  builder: (context) => MainWeatherApp(currentcity: "Berlin"),
+                ));
+              },
+            ),
+            ListTile(
+              title:
+                  Text("Munich", style: GoogleFonts.nunitoSans(fontSize: 30)),
+              trailing: IconButton(
+                  onPressed: () {},
+                  icon:
+                      const Icon(Icons.add_circle_outline_outlined, size: 30)),
+              onTap: () {
+                Navigator.of(context).push(MaterialPageRoute(
+                  builder: (context) => MainWeatherApp(currentcity: "Munich"),
+                ));
+              },
+            ),
+            ListTile(
+              title: Text("Stockholm",
+                  style: GoogleFonts.nunitoSans(fontSize: 30)),
+              trailing: IconButton(
+                  onPressed: () {},
+                  icon:
+                      const Icon(Icons.add_circle_outline_outlined, size: 30)),
+              onTap: () {
+                Navigator.of(context).push(MaterialPageRoute(
+                  builder: (context) =>
+                      MainWeatherApp(currentcity: "Stockholm"),
+                ));
+              },
+            ),
+            ListTile(
+              title: Text("Kyiv", style: GoogleFonts.nunitoSans(fontSize: 30)),
+              trailing: IconButton(
+                  onPressed: () {},
+                  icon:
+                      const Icon(Icons.add_circle_outline_outlined, size: 30)),
+              onTap: () {
+                Navigator.of(context).push(MaterialPageRoute(
+                  builder: (context) => MainWeatherApp(currentcity: "Kyiv"),
+                ));
+              },
+            ),
+            ListTile(
+              title:
+                  Text("Moscow", style: GoogleFonts.nunitoSans(fontSize: 30)),
+              trailing: IconButton(
+                  onPressed: () {},
+                  icon:
+                      const Icon(Icons.add_circle_outline_outlined, size: 30)),
+              onTap: () {
+                Navigator.of(context).push(MaterialPageRoute(
+                  builder: (context) => MainWeatherApp(currentcity: "Moscow"),
+                ));
+              },
+            ),
+            ListTile(
+              title: Text("Melbourne",
+                  style: GoogleFonts.nunitoSans(fontSize: 30)),
+              trailing: IconButton(
+                  onPressed: () {},
+                  icon:
+                      const Icon(Icons.add_circle_outline_outlined, size: 30)),
+              onTap: () {
+                Navigator.of(context).push(MaterialPageRoute(
+                  builder: (context) =>
+                      MainWeatherApp(currentcity: "Melbourne"),
+                ));
+              },
+            ),
+            ListTile(
+              title: Text("Seoul", style: GoogleFonts.nunitoSans(fontSize: 30)),
+              trailing: IconButton(
+                  onPressed: () {},
+                  icon:
+                      const Icon(Icons.add_circle_outline_outlined, size: 30)),
+              onTap: () {
+                Navigator.of(context).push(MaterialPageRoute(
+                  builder: (context) => MainWeatherApp(currentcity: "Seoul"),
+                ));
+              },
+            ),
+            ListTile(
+              title: Text("Singapore",
+                  style: GoogleFonts.nunitoSans(fontSize: 30)),
+              trailing: IconButton(
+                  onPressed: () {},
+                  icon:
+                      const Icon(Icons.add_circle_outline_outlined, size: 30)),
+              onTap: () {
+                Navigator.of(context).push(MaterialPageRoute(
+                  builder: (context) =>
+                      MainWeatherApp(currentcity: "Singapore"),
+                ));
+              },
+            ),
+          ],
+        ),
       ),
-      /*ListView.builder(
-          itemCount: listlocations.length,
-          itemBuilder: (context, index) {
-            return Container(
-              decoration: BoxDecoration(
-                border: Border(bottom: BorderSide()),
-              ),
-              child: Padding(
-                padding: EdgeInsets.fromLTRB(30, 8, 0, 8),
-                child: ListTile(
-                  title: Text(
-                    "Melbourne",
-                    style: GoogleFonts.nunitoSans(fontSize: 35),
-                  ),
-                  onTap: () {
-                    var route = new MaterialPageRoute(
-                      builder: (BuildContext context) =>
-                          new MainWeatherApp(currentcity: string1),
-                    );
-                  },
-                ),
-              ),
-              /*
-              child: Padding(
-                padding: EdgeInsets.fromLTRB(30, 8, 0, 8),
-                child: ListTile(
-                  title: Text(
-                    listlocations[index],
-                    style: GoogleFonts.nunitoSans(fontSize: 35),
-                  ),
-                  onTap: () {},
-                ),
-              ),*/ 
-            );
-          }),*/
     );
   }
 }
