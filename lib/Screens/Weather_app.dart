@@ -1,17 +1,28 @@
 import 'dart:convert';
 import 'dart:async';
-import 'package:flutter/material.dart';
 import 'package:flutterweatherui/Screens/Locations.dart';
-import 'package:flutterweatherui/Screens/Settings.dart';
 import 'package:flutterweatherui/main.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:http/http.dart' as http;
-import 'dart:html';
+import 'package:flutterweatherui/Screens/Settings.dart' as settings;
+import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:adaptive_theme/adaptive_theme.dart';
+import 'package:flutterweatherui/Screens/Settings.dart';
 
 //all packages imported for the design
+class MainWeatherApp extends StatefulWidget {
+  String currentcity = "Chorley";
+  MainWeatherApp({required this.currentcity});
+  @override
+  WeatherApp createState() => WeatherApp(currentcity);
+}
 
-class WeatherApp extends State<MyApp> {
+class WeatherApp extends State<MainWeatherApp> {
+  String currentcity = "Chorley";
+  WeatherApp(this.currentcity);
+
   final Color BackLB = const Color(0xFF00c2ff); //setting final variables for
   final Color BackDB = const Color(0xFF0085ff); //main colours that are used in
   final Color ExtraB = const Color(0xFF45a3f7); //the app
@@ -22,14 +33,14 @@ class WeatherApp extends State<MyApp> {
   var currently;
   var humidity;
   var windspeed;
-  String currentcity = "Chorley"; //setting of global variables to get dynamic
+  //String currentcity = "Chorley"; //setting of global variables to get dynamic
   String TUnit = "metric"; //info from the api
 
   Future getWeather() async {
     String apiKey = "8e4806ff7961f456e5ef068da0cf3e9b";
     //store the api key used for OpenWeatherMap URI
     http.Response response = await http.get(Uri.parse(
-        "https://api.openweathermap.org/data/2.5/weather?q=$currentcity&units=$TUnit&appid=$apiKey"));
+        "https://api.openweathermap.org/data/2.5/weather?q=${widget.currentcity}&units=$TUnit&appid=$apiKey"));
     //call the OpenWeatherMap URI to get the live weather data from the api.
     var results = jsonDecode(response.body);
     setState(() {
@@ -122,7 +133,7 @@ class WeatherApp extends State<MyApp> {
                           Padding(
                             padding: EdgeInsets.all(0),
                             child: Text(
-                              '$currentcity', //location Text
+                              '${widget.currentcity}', //location Text
                               style: GoogleFonts.nunitoSans(
                                 fontSize: 50,
                                 color: Colors.white,
