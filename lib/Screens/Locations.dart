@@ -10,20 +10,20 @@ class Locations extends StatefulWidget {
 }
 
 class AllLocations extends State<Locations> {
-  String value = '';
-  @override
+  String value = ''; //create the variable that is used to dynamically
+  @override //change the location value on the home page.
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        foregroundColor: Colors.black,
+        backgroundColor: Colors.transparent,
         title: Padding(
           padding: EdgeInsets.fromLTRB(380, 40, 0, 40),
           child: Text(
             "Locations",
-            style: GoogleFonts.nunitoSans(color: Colors.black, fontSize: 50),
+            style: GoogleFonts.nunitoSans(fontSize: 50),
           ),
         ),
-        backgroundColor: Colors.white,
+        //backgroundColor: Colors.white,
         bottom: PreferredSize(
             child: Container(
               color: Colors.black,
