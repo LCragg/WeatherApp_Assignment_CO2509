@@ -1,5 +1,8 @@
 import 'package:flutterweatherui/Screens/Weather_app.dart';
 import 'package:flutterweatherui/main.dart';
+import 'package:flutterweatherui/widget/Change_theme_button.dart';
+import 'package:google_fonts/google_fonts.dart';
+import 'package:provider/provider.dart';
 import 'Locations.dart';
 import 'package:flutter/material.dart';
 import 'package:adaptive_theme/adaptive_theme.dart';
@@ -11,34 +14,24 @@ class Settings extends StatefulWidget {
   MySettings createState() => MySettings();
 }
 
-class ThemeClass {
-  static ThemeData lightTheme = ThemeData(
-    scaffoldBackgroundColor: Colors.white,
-    colorScheme: ColorScheme.light(),
-  );
-  static ThemeData darkTheme = ThemeData(
-    scaffoldBackgroundColor: Colors.black87,
-    colorScheme: ColorScheme.dark(),
-  );
-}
-
 class MySettings extends State<Settings> {
   bool togstatus = false;
-
   @override
   Widget build(BuildContext context) {
+    final text = MediaQuery.of(context).platformBrightness == Brightness.dark
+        ? 'DarkTheme'
+        : 'LightTheme';
     return Scaffold(
       appBar: AppBar(
         title: Padding(
           padding: EdgeInsets.fromLTRB(380, 10, 0, 20),
           child: Text(
             "Settings",
-            style: TextStyle(color: Colors.black, fontSize: 40.0),
+            style: GoogleFonts.nunitoSans(fontSize: 40.0),
           ),
         ),
         elevation:
             0, //removes any shadow from the app bar to make it fully transparent
-        backgroundColor: Colors.transparent,
         leading: IconButton(
             icon: Icon(
               Icons.chevron_left_outlined, //back button on the app bar
@@ -47,8 +40,7 @@ class MySettings extends State<Settings> {
             onPressed: () {
               Navigator.pop(
                   context); //sends the user back to where the navigator has brought them from
-            },
-            color: Colors.black87),
+            }),
       ),
       body: Container(
         width: double.infinity,
@@ -64,8 +56,8 @@ class MySettings extends State<Settings> {
                     width: double.infinity,
                     decoration: BoxDecoration(
                         border: Border(
-                      top: BorderSide(width: 1.0, color: Colors.black87),
-                      bottom: BorderSide(width: 1.0, color: Colors.black87),
+                      top: BorderSide(width: 1.0),
+                      bottom: BorderSide(width: 1.0),
                     )),
                     child: Column(
                       children: [
@@ -77,8 +69,7 @@ class MySettings extends State<Settings> {
                                 alignment: Alignment.centerLeft,
                                 child: Text(
                                   "Theme", //theme section
-                                  style: TextStyle(
-                                      color: Colors.black87, fontSize: 40.0),
+                                  style: GoogleFonts.nunitoSans(fontSize: 40.0),
                                   textAlign: TextAlign.center,
                                 ),
                               ),
@@ -88,10 +79,7 @@ class MySettings extends State<Settings> {
                                 alignment: Alignment.centerRight,
                                 child: Padding(
                                   padding: EdgeInsets.fromLTRB(800, 25, 0, 0),
-                                  child: IconButton(
-                                    icon: Icon(Icons.lightbulb),
-                                    onPressed: () {},
-                                  ),
+                                  child: ChangeThemeButtonWidget(),
                                 ),
                               ),
                             ),
@@ -106,12 +94,12 @@ class MySettings extends State<Settings> {
                   width: double.infinity,
                   decoration: BoxDecoration(
                       border: Border(
-                    bottom: BorderSide(width: 1.0, color: Colors.black87),
+                    bottom: BorderSide(width: 1.0),
                   )),
                   child: Center(
                     child: Text(
                       "Units", //change units section
-                      style: TextStyle(color: Colors.black87, fontSize: 40.0),
+                      style: GoogleFonts.nunitoSans(fontSize: 40.0),
                     ),
                   ),
                 ),
@@ -120,13 +108,13 @@ class MySettings extends State<Settings> {
                   width: double.infinity,
                   decoration: BoxDecoration(
                       border: Border(
-                    bottom: BorderSide(width: 1.0, color: Colors.black87),
+                    bottom: BorderSide(width: 1.0),
                   )),
                   child: ListTile(
                     title: Center(
                       child: Text(
                         "Reset Favourites", //reset lists of favourites
-                        style: TextStyle(color: Colors.black87, fontSize: 40.0),
+                        style: GoogleFonts.nunitoSans(fontSize: 40.0),
                       ),
                     ),
                     onTap: () {},
