@@ -1,12 +1,6 @@
-import 'package:flutterweatherui/Screens/Weather_app.dart';
-import 'package:flutterweatherui/main.dart';
 import 'package:flutterweatherui/widget/Change_theme_button.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:provider/provider.dart';
-import 'Locations.dart';
 import 'package:flutter/material.dart';
-import 'package:adaptive_theme/adaptive_theme.dart';
-import 'package:get/get.dart';
 
 class Settings extends StatefulWidget {
   Settings({Key? key}) : super(key: key);
@@ -24,7 +18,7 @@ class MySettings extends State<Settings> {
     return Scaffold(
       appBar: AppBar(
         title: Padding(
-          padding: EdgeInsets.fromLTRB(380, 10, 0, 20),
+          padding: const EdgeInsets.fromLTRB(380, 10, 0, 20),
           child: Text(
             "Settings",
             style: GoogleFonts.nunitoSans(fontSize: 40.0),
@@ -33,7 +27,7 @@ class MySettings extends State<Settings> {
         elevation:
             0, //removes any shadow from the app bar to make it fully transparent
         leading: IconButton(
-            icon: Icon(
+            icon: const Icon(
               Icons.chevron_left_outlined, //back button on the app bar
               size: 40.0,
             ),
