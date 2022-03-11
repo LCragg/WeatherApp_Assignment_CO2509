@@ -44,11 +44,11 @@ class MySettings extends State<Settings> {
             Column(
               children: [
                 Padding(
-                  padding: EdgeInsets.fromLTRB(0, 0, 0, 0),
+                  padding: const EdgeInsets.fromLTRB(0, 0, 0, 0),
                   child: Container(
                     height: 100.0,
                     width: double.infinity,
-                    decoration: BoxDecoration(
+                    decoration: const BoxDecoration(
                         border: Border(
                       top: BorderSide(width: 1.0),
                       bottom: BorderSide(width: 1.0),
@@ -58,7 +58,7 @@ class MySettings extends State<Settings> {
                         Row(
                           children: [
                             Padding(
-                              padding: EdgeInsets.fromLTRB(20, 25, 0, 0),
+                              padding: const EdgeInsets.fromLTRB(20, 25, 0, 0),
                               child: Align(
                                 alignment: Alignment.centerLeft,
                                 child: Text(
@@ -86,7 +86,7 @@ class MySettings extends State<Settings> {
                 Container(
                   height: 100.0,
                   width: double.infinity,
-                  decoration: BoxDecoration(
+                  decoration: const BoxDecoration(
                       border: Border(
                     bottom: BorderSide(width: 1.0),
                   )),
@@ -100,7 +100,7 @@ class MySettings extends State<Settings> {
                 Container(
                   height: 100.0,
                   width: double.infinity,
-                  decoration: BoxDecoration(
+                  decoration: const BoxDecoration(
                       border: Border(
                     bottom: BorderSide(width: 1.0),
                   )),

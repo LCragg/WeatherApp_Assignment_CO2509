@@ -125,7 +125,7 @@ class WeatherApp extends State<MainWeatherApp> {
                         children: [
                           const SizedBox(height: 120),
                           Padding(
-                            padding: EdgeInsets.all(0),
+                            padding: const EdgeInsets.all(0),
                             child: Text(
                               '${widget.currentcity}', //location Text
                               style: GoogleFonts.nunitoSans(
@@ -135,7 +135,7 @@ class WeatherApp extends State<MainWeatherApp> {
                             ),
                           ),
                           Padding(
-                            padding: EdgeInsets.fromLTRB(0, 0, 0, 0),
+                            padding: const EdgeInsets.fromLTRB(0, 0, 0, 0),
                             child: Text(
                               temp != null //text for the current temp
                                   ? temp.toString() +
@@ -235,7 +235,7 @@ class WeatherApp extends State<MainWeatherApp> {
                                 ),
                               )),
                           Padding(
-                            padding: EdgeInsets.fromLTRB(5, 10, 5, 0),
+                            padding: const EdgeInsets.fromLTRB(5, 10, 5, 0),
                             child: Container(
                               alignment: Alignment.center,
                               width: 200.0,
