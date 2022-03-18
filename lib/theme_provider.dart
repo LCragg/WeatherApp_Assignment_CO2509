@@ -1,22 +1,34 @@
 import 'package:flutter/material.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 class ThemeProvider extends ChangeNotifier {
-  ThemeMode themeMode = ThemeMode.dark;
-  bool get isDarkMode => themeMode == ThemeMode.dark;
+  late ThemeData _selectedTheme; //uses share prefs to store the current theme.
+  late SharedPreferences prefs;
 
-  void toggleTheme(bool isOn) {
-    themeMode = isOn ? ThemeMode.dark : ThemeMode.light;
+  ThemeData light = ThemeData.light().copyWith(
+    //create the two different themes that will be used
+    primaryColor: Colors.blue,
+  );
+  ThemeData dark = ThemeData.dark().copyWith(
+    primaryColor: Colors.black,
+  );
+
+  ThemeProvider({required bool isDarkMode}) {
+    _selectedTheme = isDarkMode ? dark : light;
+  }
+
+  Future<void> swapTheme() async {
+    prefs = await SharedPreferences.getInstance();
+    if (_selectedTheme == dark) {
+      _selectedTheme =
+          light; //future function to store the current theme as a shared preference.
+      prefs.setBool("isDarkTheme", false);
+    } else {
+      _selectedTheme = dark;
+      await prefs.setBool("isDarkTheme", true);
+    }
     notifyListeners();
   }
-}
 
-class MyThemes {
-  static final darkTheme = ThemeData(
-    scaffoldBackgroundColor: Colors.grey.shade900,
-    colorScheme: const ColorScheme.dark(),
-  );
-  static final lightTheme = ThemeData(
-    scaffoldBackgroundColor: Colors.white,
-    colorScheme: const ColorScheme.light(),
-  );
+  ThemeData get getTheme => _selectedTheme;
 }
