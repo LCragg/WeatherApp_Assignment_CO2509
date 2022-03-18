@@ -1,6 +1,7 @@
-import 'package:flutterweatherui/widget/Change_theme_button.dart';
+import 'package:flutterweatherui/theme_provider.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
 class Settings extends StatefulWidget {
   Settings({Key? key}) : super(key: key);
@@ -12,9 +13,6 @@ class MySettings extends State<Settings> {
   bool togstatus = false;
   @override
   Widget build(BuildContext context) {
-    final text = MediaQuery.of(context).platformBrightness == Brightness.dark
-        ? 'DarkTheme'
-        : 'LightTheme';
     return Scaffold(
       appBar: AppBar(
         title: Padding(
@@ -72,9 +70,16 @@ class MySettings extends State<Settings> {
                               child: Align(
                                 alignment: Alignment.centerRight,
                                 child: Padding(
-                                  padding: EdgeInsets.fromLTRB(800, 25, 0, 0),
-                                  child: ChangeThemeButtonWidget(),
-                                ),
+                                    padding: EdgeInsets.fromLTRB(800, 25, 0, 0),
+                                    child: IconButton(
+                                      icon: Icon(Icons.brightness_6),
+                                      onPressed: () {
+                                        Provider.of<ThemeProvider>(context,
+                                                listen:
+                                                    false) //uses the provider from the theme functions to switch the themes when the button is pressed.
+                                            .swapTheme();
+                                      },
+                                    )),
                               ),
                             ),
                           ],
@@ -90,33 +95,53 @@ class MySettings extends State<Settings> {
                       border: Border(
                     bottom: BorderSide(width: 1.0),
                   )),
-                  child: Center(
-                    child: Text(
-                      "Units", //change units section
+                  child: ListTile(
+                    title: Text(
+                      "About", //About List tile button to take the user to the about page with some information about the app and data that is used.
                       style: GoogleFonts.nunitoSans(fontSize: 40.0),
                     ),
-                  ),
-                ),
-                Container(
-                  height: 100.0,
-                  width: double.infinity,
-                  decoration: const BoxDecoration(
-                      border: Border(
-                    bottom: BorderSide(width: 1.0),
-                  )),
-                  child: ListTile(
-                    title: Center(
-                      child: Text(
-                        "Reset Favourites", //reset lists of favourites
-                        style: GoogleFonts.nunitoSans(fontSize: 40.0),
-                      ),
-                    ),
-                    onTap: () {},
+                    onTap: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => const AboutPage()),
+                      );
+                    },
                   ),
                 )
               ],
             ),
           ],
+        ),
+      ),
+    );
+  }
+}
+
+class AboutPage extends StatelessWidget {
+  //page that displays text about the app and what data the app uses to work.
+  const AboutPage({Key? key}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: const Text("About"),
+        leading: IconButton(
+          icon: const Icon(
+            Icons.chevron_left_outlined, //back button on the app bar
+            size: 40.0,
+          ),
+          onPressed: () {
+            Navigator.pop(
+                context); //sends the user back to where the navigator has brought them from
+          },
+        ),
+      ),
+      body: Container(
+        alignment: Alignment.topCenter,
+        child: Text(
+          'All Weather data used within flutter weather app is provided by "openweathermap.org" All data has been gathered using the OpenWeatherMap API open source feature which can be found from the button below. This app is not for public production / development and is purely for University and Educational purposes. This app does not gather any personal Information about the user and will store no such data.',
         ),
       ),
     );
