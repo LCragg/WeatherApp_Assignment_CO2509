@@ -10,7 +10,7 @@ Future<void> main() async {
     return runApp(ChangeNotifierProvider<ThemeProvider>(
       child: MyApp(),
       create: (BuildContext context) =>
-          ThemeProvider(isDarkMode: true), //theme sets as dark mode.
+          ThemeProvider(isDarkMode: false), //theme sets as dark mode.
     ));
   });
 }

@@ -1,7 +1,9 @@
+// ignore_for_file: deprecated_member_use
 import 'package:flutterweatherui/theme_provider.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 class Settings extends StatefulWidget {
   Settings({Key? key}) : super(key: key);
@@ -10,7 +12,26 @@ class Settings extends StatefulWidget {
 }
 
 class MySettings extends State<Settings> {
-  bool togstatus = false;
+  TextEditingController tec = TextEditingController();
+  String SavedText = "User";
+
+  Future<SharedPreferences> _prefs = SharedPreferences.getInstance();
+  late SharedPreferences prefs;
+  getvalue() async {
+    prefs = await _prefs;
+    setState(() {
+      SavedText = prefs.containsKey("savedString")
+          ? prefs.getString("savedString")!
+          : "";
+    });
+  }
+
+  @override
+  void initstate() {
+    super.initState();
+    getvalue();
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -18,7 +39,7 @@ class MySettings extends State<Settings> {
         title: Padding(
           padding: const EdgeInsets.fromLTRB(380, 10, 0, 20),
           child: Text(
-            "Settings",
+            "Hi $SavedText",
             style: GoogleFonts.nunitoSans(fontSize: 40.0),
           ),
         ),
@@ -41,6 +62,24 @@ class MySettings extends State<Settings> {
           children: [
             Column(
               children: [
+                Row(children: [
+                  Container(
+                    width: 500,
+                    child: TextFormField(
+                      decoration: InputDecoration(hintText: "Enter Name"),
+                      controller: tec,
+                    ),
+                  ),
+                  ElevatedButton(
+                      onPressed: () {
+                        setState(() {
+                          SavedText = tec.text;
+                        });
+                        prefs.setString("savedString", tec.text);
+                        print("Name Saved");
+                      },
+                      child: Text("Save"))
+                ]),
                 Padding(
                   padding: const EdgeInsets.fromLTRB(0, 0, 0, 0),
                   child: Container(
@@ -73,7 +112,7 @@ class MySettings extends State<Settings> {
                                     padding: EdgeInsets.fromLTRB(800, 25, 0, 0),
                                     child: IconButton(
                                       icon: Icon(Icons.brightness_6),
-                                      onPressed: () {
+                                      onPressed: () async {
                                         Provider.of<ThemeProvider>(context,
                                                 listen:
                                                     false) //uses the provider from the theme functions to switch the themes when the button is pressed.
