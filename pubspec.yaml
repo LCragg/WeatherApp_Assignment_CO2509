@@ -14,11 +14,11 @@ dependencies:
   flutter:
     sdk: flutter
 
-  google_fonts: ^2.2.0
-  http: ^0.13.4
-  flutter_svg: ^1.0.3
-  shared_preferences:
-  provider: ^6.0.2
+  google_fonts: ^2.2.0  #used for text styling throughout the app.
+  http: ^0.13.4         #package that allows for api calls in the app.
+  shared_preferences:   #used to store data and get it when the app reloads.
+  provider: ^6.0.2      #Packages allows for inherited widgets in the app.
+  
   cupertino_icons: ^1.0.2
 
 dev_dependencies:
