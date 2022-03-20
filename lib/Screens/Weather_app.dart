@@ -128,7 +128,8 @@ class WeatherApp extends State<MainWeatherApp> {
                           Column(
                             children: [
                               Text("Units",
-                                  style: GoogleFonts.nunitoSans(fontSize: 25)),
+                                  style: GoogleFonts.nunitoSans(
+                                      fontSize: 25, color: Colors.white)),
                               Container(
                                 height: 40,
                                 child: Row(
