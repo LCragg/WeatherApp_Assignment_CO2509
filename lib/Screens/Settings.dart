@@ -13,23 +13,28 @@ class Settings extends StatefulWidget {
 
 class MySettings extends State<Settings> {
   TextEditingController tec = TextEditingController();
-  String SavedText = "User";
+  String SavedText = "";
 
-  Future<SharedPreferences> _prefs = SharedPreferences.getInstance();
-  late SharedPreferences prefs;
-  getvalue() async {
-    prefs = await _prefs;
+  @override
+  void initState() {
+    //initializes the state to run the get value first.
+    super.initState();
+    getvalue();
+  }
+
+  void getvalue() async {
+    //use of shared preferences to get and set the string for the name at the top of the page.
+    final prefs = await SharedPreferences.getInstance();
     setState(() {
-      SavedText = prefs.containsKey("savedString")
-          ? prefs.getString("savedString")!
-          : "";
+      SavedText = (prefs.getString('name') ?? "User");
     });
   }
 
-  @override
-  void initstate() {
-    super.initState();
-    getvalue();
+  void SetValue() async {
+    final prefs = await SharedPreferences.getInstance();
+    setState(() {
+      prefs.setString('name', SavedText);
+    });
   }
 
   @override
@@ -66,6 +71,8 @@ class MySettings extends State<Settings> {
                   Container(
                     width: 500,
                     child: TextFormField(
+                      //text field and button to allow the user to
+                      //type in a name and set that as the name that appears at the top.
                       decoration: InputDecoration(hintText: "Enter Name"),
                       controller: tec,
                     ),
@@ -74,9 +81,9 @@ class MySettings extends State<Settings> {
                       onPressed: () {
                         setState(() {
                           SavedText = tec.text;
+                          SetValue(); //calls the set value function when the button is pressed.
+                          print("Name Saved");
                         });
-                        prefs.setString("savedString", tec.text);
-                        print("Name Saved");
                       },
                       child: Text("Save"))
                 ]),
