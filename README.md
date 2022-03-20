@@ -56,16 +56,23 @@ Heuristics used can be found here: https://usabilitygeek.com/usability-heuristic
 To create this App I had to make use of flutter packages that are available on the PUB DEV website. These packages allowed for the design and functionality of the app that has been created.
 
 Google Fonts: Google fonts was the package that I used in order to get the Nunito Sans font that I discussed earlier. The reason that this package was used was because I had used the font throughout all of my designs and I wanted to add this to my App in order to stay in line with the early designs that were produced.
+
 Link: https://pub.dev/packages/google_fonts
 
 http: Http was one of the most important packages within this entire development. The HTTP package allowed me to add the API calls within the app, so this package is completely necessary for any kind of online app or app that intends to pull external data from a API. The package made it very easy to send the call to the OWM API and is very quick at pulling the data back for the user to view in the app.
+
 Link: https://pub.dev/packages/http
+
 Reference for learning to use http and API calls: https://www.youtube.com/watch?v=0er4rUjJdCk&t=509s
 
 shared preferences: This package was implemented into the code in order to save and get data from the app and store it on the local device, so that there would be data and information persistence when the app was reloaded after being closed down. This was used in the Weather App for storing the name of the user they input within the settings page. This name stays the same when the user reloads the app after inputting the data.
+
 Link: https://pub.dev/packages/shared_preferences
+
 Reference for learning to use Shared Preferences: https://petercoding.com/flutter/2021/03/19/using-shared-preferences-in-flutter/
 
 Provider: The provider package is mainly used to recall and resuse Inherited Widgets as it provides a wrapper around Inherited Widgets in order to make them easier to recall and reuse. This package also allows for the change Notifier and listener functions, which I have implemented into this app with the changing of theme modes and setting of theme modes.
+
 Link: https://pub.dev/packages/provider
+
 Reference for learning to use the Provider package: https://www.youtube.com/watch?v=LpCbUoahiww&t=224s
